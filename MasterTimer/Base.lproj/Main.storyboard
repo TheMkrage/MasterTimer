@@ -49,6 +49,10 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="skillsNameLabel" destination="xFf-rI-P5Y" id="a39-wE-sbq"/>
+                                    <outlet property="timeLabel" destination="CvX-Gc-7m6" id="bAb-1o-eWn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,7 +61,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Skills" id="UUC-Ap-TxV">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="9sx-u8-rIC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9sx-u8-rIC">
                             <connections>
                                 <segue destination="DXx-K9-HoV" kind="show" id="EVC-l9-FPk"/>
                             </connections>
@@ -71,7 +75,7 @@
         <!--Create a New Skill-->
         <scene sceneID="gIF-xf-kjU">
             <objects>
-                <viewController id="DXx-K9-HoV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateSkills" id="DXx-K9-HoV" customClass="CreateSkillsViewController" customModule="MasterTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LJI-Jk-4Sd"/>
                         <viewControllerLayoutGuide type="bottom" id="zou-tq-Zkf"/>
@@ -119,6 +123,9 @@
                                         <include reference="jTL-Yg-MLa"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="addSkill:" destination="DXx-K9-HoV" eventType="touchUpInside" id="rcd-kX-Rtg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,6 +161,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Create a New Skill" id="7RB-Ep-pkY"/>
+                    <connections>
+                        <outlet property="skillsNameTextField" destination="bAu-m3-JmF" id="JWh-Rd-OlL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNd-Lk-c9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

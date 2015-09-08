@@ -9,5 +9,11 @@
 import UIKit
 
 class SkillCell: UITableViewCell {
-
+    @IBOutlet var skillsNameLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    
+    func setTime(time: NSTimeInterval) {
+        
+    }
+    
 }

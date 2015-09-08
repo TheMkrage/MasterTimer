@@ -9,12 +9,14 @@
 import UIKit
 
 class MainMenuViewController: UITableViewController {
-
+    var skills: NSMutableArray = NSMutableArray()
+    
     override func viewDidLoad() {
         
     }
     
-    override func setEditing(editing: Bool, animated: Bool) {
-        
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        <#code#>
     }
+    
 }
