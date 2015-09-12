@@ -58,20 +58,32 @@ class MainMenuViewController: UITableViewController {
     var skills: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
-
+        self.viewWillAppear(true)
     }
     
     override func viewWillAppear(animated: Bool) {
+        println("HELO")
+        // refresh each time
+        self.skills = NSMutableArray()
+        self.loadSkills()
         self.tableView.reloadData()
     }
     
     func loadSkills() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let curSkills = defaults.valueForKey("Skills") as? NSArray {
-            self.skills.addObjectsFromArray(curSkills as [AnyObject])
+            for skill in curSkills {
+                var s:Skill = Skill(skillName: skill.objectForKey("Name") as! String, timeInDouble: skill.objectForKey("Time") as! Double)
+                self.skills.addObject(s)
+            }
+        }else { // initial launch, make array here
+            let defaults = NSUserDefaults.standardUserDefaults()
+            var newSkills: NSMutableArray = NSMutableArray()
+            defaults.setObject(newSkills as NSArray, forKey: "Skills")
+            defaults.synchronize()
         }
         if self.skills.count > 0 {
-            self.tableView.reloadData();
+            self.tableView.reloadData()
         }
     }
     

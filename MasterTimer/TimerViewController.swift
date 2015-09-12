@@ -15,7 +15,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         self.timeLabel.text = self.skill.timeSpent.secondsToHoursMinutesSecondsString() as String
-        
     }
     
     func addSecond() {
@@ -29,5 +28,23 @@ class TimerViewController: UIViewController {
     
     @IBAction func stopButton(sender: AnyObject) {
         self.timer.invalidate()
+        self.updateSavedTime()
+    }
+    
+    func updateSavedTime() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let curSkills = defaults.valueForKey("Skills") as? NSArray {
+            for var i = 0; i < curSkills.count; i++ {
+                var curSkill = curSkills.objectAtIndex(i) as! NSMutableDictionary
+                if (curSkill.objectForKey("Name") as! NSString) == self.skill.name {
+                    curSkill.setObject(self.skill.timeSpent, forKey: "Time")
+                }
+            }
+            defaults.setObject(curSkills, forKey: "Skills")
+            defaults.synchronize()
+        }else {
+            println("ERROR")
+        }
+
     }
 }

@@ -17,8 +17,19 @@ class CreateSkillsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addSkill(sender: AnyObject) {
-        var s: Skill = Skill(skillName: self.skillsNameTextField.text)
-        (self.navigationController?.viewControllers[0] as! MainMenuViewController).skills.addObject(s)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let curSkills = defaults.valueForKey("Skills") as? NSArray {
+            var newSkills: NSMutableArray = NSMutableArray(array: curSkills)
+            var curDictionary = NSMutableDictionary()
+            curDictionary.setValue(self.skillsNameTextField.text, forKey: "Name")
+            curDictionary.setValue(0.0, forKey: "Time")
+            // Add new team to bookmarks
+            newSkills.addObject(curDictionary)
+            defaults.setObject(newSkills as NSArray, forKey: "Skills")
+            defaults.synchronize()
+        }else {
+            println("ERROR")
+        }
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
