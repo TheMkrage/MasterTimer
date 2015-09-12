@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Matthew Krager. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class TimeConverter: NSObject {
 

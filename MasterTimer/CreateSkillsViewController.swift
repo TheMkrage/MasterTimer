@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateSkillsViewController: UITableViewController, UITextFieldDelegate {
+class CreateSkillsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var skillsNameTextField: UITextField!
     
