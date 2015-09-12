@@ -17,6 +17,7 @@
 		7EC8894B1B9E07C20080AD96 /* CreateSkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8894A1B9E07C20080AD96 /* CreateSkillsViewController.swift */; };
 		7EC8894E1B9E9FDA0080AD96 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8894D1B9E9FDA0080AD96 /* Skill.swift */; };
 		7EC889501B9EA1AC0080AD96 /* TimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC8894F1B9EA1AC0080AD96 /* TimeConverter.swift */; };
+		7ECA5D711BA3F58700CE8944 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA5D701BA3F58700CE8944 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		7EC8894A1B9E07C20080AD96 /* CreateSkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSkillsViewController.swift; sourceTree = "<group>"; };
 		7EC8894D1B9E9FDA0080AD96 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		7EC8894F1B9EA1AC0080AD96 /* TimeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeConverter.swift; sourceTree = "<group>"; };
+		7ECA5D701BA3F58700CE8944 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				7EC8894C1B9E9FCD0080AD96 /* Model */,
 				7EC889451B9E01DB0080AD96 /* TableCells */,
 				7EC889481B9E022F0080AD96 /* MainMenuViewController.swift */,
+				7ECA5D701BA3F58700CE8944 /* TimerViewController.swift */,
 				7EC8894A1B9E07C20080AD96 /* CreateSkillsViewController.swift */,
 				7EC889251B9DE9550080AD96 /* AppDelegate.swift */,
 				7EC889291B9DE9550080AD96 /* Main.storyboard */,
@@ -244,6 +247,7 @@
 				7EC8894B1B9E07C20080AD96 /* CreateSkillsViewController.swift in Sources */,
 				7EC889491B9E022F0080AD96 /* MainMenuViewController.swift in Sources */,
 				7EC8894E1B9E9FDA0080AD96 /* Skill.swift in Sources */,
+				7ECA5D711BA3F58700CE8944 /* TimerViewController.swift in Sources */,
 				7EC889501B9EA1AC0080AD96 /* TimeConverter.swift in Sources */,
 				7EC889471B9E02040080AD96 /* SkillCell.swift in Sources */,
 				7EC889261B9DE9550080AD96 /* AppDelegate.swift in Sources */,
@@ -444,6 +448,7 @@
 				7EC889411B9DE9550080AD96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EC889421B9DE9550080AD96 /* Build configuration list for PBXNativeTarget "MasterTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +457,7 @@
 				7EC889441B9DE9550080AD96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

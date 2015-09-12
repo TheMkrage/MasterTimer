@@ -22,7 +22,7 @@ extension Double {
 
 extension NSTimeInterval {
     
-    func secondsToHoursMinutesSeconds () -> (Int, Int, Int) {
+    func secondsToHoursMinutesSeconds () -> (hours: Int, minutes: Int, seconds: Int) {
         return (Int(self) / 3600, (Int(self) % 3600) / 60, (Int(self) % 3600) % 60)
     }
 
@@ -32,17 +32,43 @@ class MainMenuViewController: UITableViewController {
     var skills: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
-        var x = NSTimeInterval()
-        x = 3661
-        println(x.secondsToHoursMinutesSeconds())
+
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
     
+    func loadSkills() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let curSkills = defaults.valueForKey("Skills") as? NSArray {
+            self.skills.addObjectsFromArray(curSkills as [AnyObject])
+        }
+        if self.skills.count > 0 {
+            self.tableView.reloadData();
+        }
+    }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.skills.count
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("SkillsCell") as! SkillCell
-        cell.skillsNameLabel.text = ;
-        cell.timeLabel.text = ;
+        var cell = tableView.dequeueReusableCellWithIdentifier("SkillCell") as! SkillCell
+        var curSkill = self.skills.objectAtIndex(indexPath.row) as! Skill
+        cell.skillsNameLabel.text = curSkill.name as String;
+        var tuple = curSkill.timeSpent.secondsToHoursMinutesSeconds()
+        cell.timeLabel.text = "\(tuple.hours):\(tuple.minutes):\(tuple.seconds)";
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var vc = TimerViewController()
+        
     }
     
 }
