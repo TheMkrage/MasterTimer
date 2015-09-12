@@ -22,8 +22,34 @@ extension Double {
 
 extension NSTimeInterval {
     
-    func secondsToHoursMinutesSeconds () -> (hours: Int, minutes: Int, seconds: Int) {
+    // returns a tuple with hours, minutes, and seconds
+    func secondsToHoursMinutesSeconds() -> (hours: Int, minutes: Int, seconds: Int) {
         return (Int(self) / 3600, (Int(self) % 3600) / 60, (Int(self) % 3600) % 60)
+    }
+    
+    // Returns in hhh:mm:ss format
+    func secondsToHoursMinutesSecondsString() -> NSString {
+        var tuple = self.secondsToHoursMinutesSeconds()
+        var runningString = ""
+        // Go through each part of tuple and add 0's where needed
+        if tuple.hours < 10 {
+            runningString += "00\(tuple.hours):"
+        }else if tuple.hours < 100 {
+            runningString += "0\(tuple.hours):"
+        }else {
+            runningString += "\(tuple.hours):"
+        }
+        if tuple.minutes < 10 {
+            runningString += "0\(tuple.minutes):"
+        }else {
+            runningString += "\(tuple.minutes):"
+        }
+        if tuple.seconds < 10 {
+            runningString += "0\(tuple.seconds)"
+        }else {
+            runningString += "\(tuple.seconds)"
+        }
+        return runningString
     }
 
 }
@@ -60,15 +86,15 @@ class MainMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("SkillCell") as! SkillCell
         var curSkill = self.skills.objectAtIndex(indexPath.row) as! Skill
-        cell.skillsNameLabel.text = curSkill.name as String;
-        var tuple = curSkill.timeSpent.secondsToHoursMinutesSeconds()
-        cell.timeLabel.text = "\(tuple.hours):\(tuple.minutes):\(tuple.seconds)";
+        cell.skillsNameLabel.text = curSkill.name as String
+        cell.timeLabel.text = curSkill.timeSpent.secondsToHoursMinutesSecondsString() as String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var vc = TimerViewController()
-        
+        var vc = self.storyboard?.instantiateViewControllerWithIdentifier("Timer") as! TimerViewController
+        vc.skill = self.skills.objectAtIndex(indexPath.row) as! Skill
+        self.showViewController(vc, sender: self)
     }
     
 }
