@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="myt-Ak-KY5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="myt-Ak-KY5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,8 +16,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SkillCell" rowHeight="65" id="7cu-oN-8cD" customClass="SkillCell" customModule="MasterTimer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="86" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7cu-oN-8cD" id="E4i-MG-moj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Skill Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-rI-P5Y">
@@ -168,24 +171,50 @@
                                     <action selector="stopButton:" destination="D8W-Bd-ZLg" eventType="touchUpInside" id="Isl-8i-yzd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrJ-n3-GSd">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="rZd-eT-hjc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="rZd-eT-hjc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="rZd-eT-hjc"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="u7H-7M-aLf" firstAttribute="top" secondItem="jU2-CH-wEv" secondAttribute="bottom" constant="20" id="DDF-YY-C7u"/>
                             <constraint firstItem="u7H-7M-aLf" firstAttribute="top" secondItem="STH-s4-asM" secondAttribute="bottom" constant="20" id="LSf-ps-DEw"/>
+                            <constraint firstItem="xrJ-n3-GSd" firstAttribute="centerX" secondItem="IQZ-YW-NgL" secondAttribute="centerX" id="Trd-YR-erg"/>
                             <constraint firstItem="1h5-eP-rdC" firstAttribute="top" secondItem="orl-C1-fA7" secondAttribute="bottom" constant="8" id="aGT-zh-W8a"/>
                             <constraint firstItem="STH-s4-asM" firstAttribute="leading" secondItem="IQZ-YW-NgL" secondAttribute="leadingMargin" id="awv-3Q-0gu"/>
                             <constraint firstItem="jU2-CH-wEv" firstAttribute="trailing" secondItem="IQZ-YW-NgL" secondAttribute="trailingMargin" id="cAy-gG-oN2"/>
                             <constraint firstAttribute="centerX" secondItem="1h5-eP-rdC" secondAttribute="centerX" id="tjG-hC-zt6"/>
+                            <constraint firstItem="xrJ-n3-GSd" firstAttribute="top" secondItem="1h5-eP-rdC" secondAttribute="bottom" constant="8" id="uy1-nx-8dQ"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="xrJ-n3-GSd"/>
+                            </mask>
                             <mask key="constraints">
-                                <exclude reference="DDF-YY-C7u"/>
-                                <exclude reference="LSf-ps-DEw"/>
                                 <exclude reference="aGT-zh-W8a"/>
                                 <exclude reference="tjG-hC-zt6"/>
+                                <exclude reference="Trd-YR-erg"/>
+                                <exclude reference="uy1-nx-8dQ"/>
                                 <exclude reference="awv-3Q-0gu"/>
                                 <exclude reference="cAy-gG-oN2"/>
+                                <exclude reference="DDF-YY-C7u"/>
+                                <exclude reference="LSf-ps-DEw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -193,18 +222,22 @@
                                 <include reference="1h5-eP-rdC"/>
                                 <include reference="STH-s4-asM"/>
                                 <include reference="jU2-CH-wEv"/>
+                                <include reference="xrJ-n3-GSd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DDF-YY-C7u"/>
-                                <include reference="LSf-ps-DEw"/>
                                 <include reference="aGT-zh-W8a"/>
                                 <include reference="tjG-hC-zt6"/>
+                                <include reference="Trd-YR-erg"/>
+                                <include reference="uy1-nx-8dQ"/>
                                 <include reference="awv-3Q-0gu"/>
                                 <include reference="cAy-gG-oN2"/>
+                                <include reference="DDF-YY-C7u"/>
+                                <include reference="LSf-ps-DEw"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="levelLabel" destination="xrJ-n3-GSd" id="uCL-zr-oIm"/>
                         <outlet property="timeLabel" destination="1h5-eP-rdC" id="DXe-sF-svL"/>
                     </connections>
                 </viewController>

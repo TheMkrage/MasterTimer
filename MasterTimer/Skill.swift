@@ -9,8 +9,19 @@
 import UIKit
 
 class Skill: NSObject {
+    enum SkillLevel:String {
+        case KnowNothing = "Know-Nothing"
+        case Beginner = "Beginner"
+        case Novice = "Novice"
+        case Mediocre = "Mediocre"
+        case Experienced = "Experienced"
+        case Expert = "Expert"
+        case Master = "Master"
+        case AllKnowing = "All-Knowing"
+    }
     var name: NSString! = ""
     var timeSpent: NSTimeInterval = NSTimeInterval()
+    var level:SkillLevel = SkillLevel.KnowNothing
     
     init(skillName:NSString) {
         self.name = skillName
